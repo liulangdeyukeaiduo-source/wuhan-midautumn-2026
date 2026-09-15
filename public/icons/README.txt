@@ -1,0 +1,1 @@
+Safari home-screen icon assets are stored in this folder.
