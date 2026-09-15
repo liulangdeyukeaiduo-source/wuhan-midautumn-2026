@@ -1,5 +1,5 @@
-const CACHE = "wuhan-midautumn-2026-v5";
-const CORE = ["./", "./index.html", "./manifest.webmanifest"];
+const CACHE = "wuhan-midautumn-2026-v6";
+const CORE = ["./", "./index.html", "./manifest.webmanifest", "./prep-v6.js", "./icons/apple-touch-icon.png"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)));
