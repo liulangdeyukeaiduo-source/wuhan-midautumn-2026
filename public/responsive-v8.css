@@ -1,0 +1,105 @@
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+  overflow-x:hidden;
+}
+body{
+  width:100%;
+  min-width:0;
+  overflow-x:hidden;
+}
+input,textarea,select,button{font-size:16px}
+button,a{-webkit-tap-highlight-color:transparent}
+.sync-modal-open body{overflow:hidden}
+
+/* Phone first: stable iPhone layout */
+@media (max-width: 599px){
+  .app{
+    width:100%!important;
+    max-width:430px!important;
+    min-width:0!important;
+    margin:0 auto!important;
+    padding-left:max(14px,env(safe-area-inset-left))!important;
+    padding-right:max(14px,env(safe-area-inset-right))!important;
+    padding-bottom:calc(70px + env(safe-area-inset-bottom))!important;
+  }
+  .hero{border-radius:24px!important}
+  .dock{
+    position:fixed!important;
+    left:0!important;
+    right:0!important;
+    bottom:0!important;
+    transform:none!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:5px 10px calc(5px + env(safe-area-inset-bottom))!important;
+    border-left:0!important;
+    border-right:0!important;
+    border-bottom:0!important;
+    border-radius:18px 18px 0 0!important;
+    background:rgba(250,248,244,.97)!important;
+    backdrop-filter:blur(22px)!important;
+    box-shadow:0 -7px 24px rgba(34,40,37,.08)!important;
+  }
+  .dock a{
+    min-height:44px!important;
+    font-size:11px!important;
+  }
+  .sync-sheet,.prep6-sheet{
+    width:calc(100% - 20px)!important;
+    max-width:410px!important;
+    max-height:calc(100dvh - 24px)!important;
+    overflow:auto;
+  }
+}
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 899px){
+  .app{
+    width:100%!important;
+    max-width:720px!important;
+    margin:0 auto!important;
+    padding:22px 24px 105px!important;
+  }
+  .dock{
+    width:min(calc(100% - 48px),520px)!important;
+    max-width:520px!important;
+    bottom:14px!important;
+  }
+}
+
+/* Desktop: two-column working layout rather than a stretched phone */
+@media (min-width: 900px){
+  body{background:linear-gradient(180deg,#f7f4ef 0,#f1ede6 100%)!important}
+  .app{
+    width:100%!important;
+    max-width:1180px!important;
+    margin:0 auto!important;
+    padding:28px 30px 110px!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)!important;
+    column-gap:30px!important;
+    align-items:start!important;
+  }
+  .topbar,.hero,#notes,.footer{grid-column:1 / -1!important}
+  #bookings{grid-column:1!important;grid-row:3!important}
+  #journey{grid-column:2!important;grid-row:3 / span 2!important}
+  #prep{grid-column:1!important;grid-row:4!important}
+  #notes{grid-row:5!important}
+  .hero{
+    min-height:360px!important;
+    padding:42px 44px 32px!important;
+  }
+  .hero h1{font-size:58px!important;max-width:580px!important}
+  .hero-sub{font-size:15px!important;max-width:620px!important}
+  .hero-meta{max-width:650px!important}
+  .next-panel{max-width:650px!important}
+  #notes .notes-grid{grid-template-columns:repeat(4,1fr)!important}
+  .dock{
+    width:430px!important;
+    max-width:430px!important;
+    bottom:18px!important;
+    border-radius:18px!important;
+  }
+}
