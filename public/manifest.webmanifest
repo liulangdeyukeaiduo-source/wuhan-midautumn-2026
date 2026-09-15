@@ -3,8 +3,8 @@
   "short_name": "武汉中秋",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#f5f3ee",
-  "theme_color": "#0f6a60",
+  "background_color": "#f2efe9",
+  "theme_color": "#183c35",
   "lang": "zh-CN",
   "description": "2026年9月25日至27日武汉双人中秋旅行执行手册"
 }
