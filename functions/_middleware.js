@@ -9,7 +9,7 @@ export async function onRequest(context) {
   return new HTMLRewriter()
     .on("head", {
       element(element) {
-        element.append('<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=1"><link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=1"><link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512.png?v=1"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="武汉中秋">', { html: true });
+        element.append('<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=2"><link rel="icon" type="image/png" sizes="180x180" href="/icons/apple-touch-icon.png?v=2"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="武汉中秋">', { html: true });
       }
     })
     .on("body", {
