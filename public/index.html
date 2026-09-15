@@ -18,7 +18,7 @@
     body{margin:0;background:linear-gradient(180deg,#f5f2ec 0,#f1eee8 58%,#ede9e2 100%);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}button,input{font:inherit}button{color:inherit}
     .app{width:100%;max-width:430px;margin:0 auto;padding:max(14px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) calc(94px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
-    .topbar{display:flex;align-items:center;justify-content:space-between;margin:2px 2px 12px}.brand{font-size:10px;letter-spacing:.18em;font-weight:800;color:var(--pine)}.live{font-size:10px;color:var(--muted)}
+    .topbar{display:flex;align-items:flex-start;justify-content:space-between;margin:2px 2px 12px}.brand{font-size:10px;letter-spacing:.18em;font-weight:800;color:var(--pine);padding-top:2px}.status-stack{display:flex;flex-direction:column;align-items:flex-end;gap:3px}.live{font-size:9px;color:var(--muted)}.sync-pill{border:0;background:transparent;padding:0;font-size:9px;color:var(--pine);display:flex;align-items:center;gap:4px;cursor:pointer}.sync-pill:before{content:"";width:6px;height:6px;border-radius:50%;background:#a8aaa6}.sync-pill.syncing:before{background:var(--bronze);box-shadow:0 0 0 3px rgba(167,134,86,.12)}.sync-pill.synced:before{background:#4e7d6e}.sync-pill.local:before{background:#a8aaa6}.sync-pill.error:before{background:var(--danger)}
     .hero{position:relative;overflow:hidden;padding:26px 20px 20px;border-radius:26px;background:linear-gradient(145deg,#173b34 0,#214a40 52%,#132e29 100%);color:#f7f3ea;box-shadow:0 22px 55px rgba(24,60,53,.2)}
     .hero:before{content:"";position:absolute;right:-72px;top:-85px;width:240px;height:240px;border-radius:50%;border:1px solid rgba(241,221,185,.2);box-shadow:0 0 0 30px rgba(255,255,255,.023),0 0 0 62px rgba(255,255,255,.015)}
     .hero:after{content:"";position:absolute;right:30px;top:42px;width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 35% 32%,#efe1c3,#c9a466 66%,#9b7543);box-shadow:0 0 30px rgba(214,180,119,.24)}
@@ -27,46 +27,271 @@
     .next-panel{position:relative;z-index:1;margin-top:10px;padding:14px;border:1px solid rgba(255,255,255,.1);border-radius:16px;background:rgba(5,18,15,.24)}.next-label{font-size:9px;letter-spacing:.15em;color:#cbbca2}.next-title{font-size:15px;font-weight:650;margin-top:4px}.next-time{font-size:10px;color:rgba(247,243,234,.52);margin-top:2px}.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:11px}.count{text-align:center;padding:7px 4px;border-radius:10px;background:rgba(255,255,255,.05)}.count strong{display:block;font-size:18px;line-height:1.05;font-variant-numeric:tabular-nums}.count small{font-size:8px;color:rgba(247,243,234,.43)}
     section{margin-top:28px}.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin:0 2px 10px}.section-title{margin:0;font-family:"Songti SC","STSong",serif;font-size:23px;font-weight:600}.section-cap{font-size:9px;letter-spacing:.1em;color:var(--muted)}.panel{background:rgba(251,250,247,.92);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
     .essentials{overflow:hidden}.essential-row{display:grid;grid-template-columns:54px 1fr;gap:10px;padding:15px;border-bottom:1px solid var(--line)}.essential-row:last-child{border-bottom:0}.essential-type{font-size:8px;letter-spacing:.12em;color:var(--muted);font-weight:800;padding-top:2px}.essential-main b{display:block;font-size:13px;font-weight:650}.essential-main span{display:block;font-size:10px;color:var(--muted);margin-top:3px}.essential-side{display:inline-block;width:max-content;margin-top:7px;font-size:9px;color:var(--pine);padding:4px 7px;border:1px solid #cfd6d2;border-radius:999px}
+
     .journey{padding:12px}.day-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding:4px;background:#ebe7df;border-radius:14px}.day-tab{min-height:44px;border:0;border-radius:10px;background:transparent;color:var(--muted);font-size:11px;font-weight:600}.day-tab.active{background:var(--paper);color:var(--ink);box-shadow:0 4px 14px rgba(31,38,35,.08)}
     .journey-head{padding:16px 2px 12px}.journey-headline{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.journey-head h3{margin:0;font-size:18px}.journey-head p{margin:5px 0 0;font-size:11px;color:var(--muted)}.badge{font-size:9px;color:var(--pine);border:1px solid #ccd5d1;border-radius:999px;padding:5px 7px;white-space:nowrap}.day-facts{display:flex;gap:6px;overflow-x:auto;padding:9px 0 4px;scrollbar-width:none}.day-facts::-webkit-scrollbar{display:none}.fact-chip{flex:0 0 auto;padding:7px 9px;border:1px solid var(--line);border-radius:11px;background:var(--soft)}.fact-chip span{display:block;font-size:8px;color:var(--muted)}.fact-chip b{font-size:10px}
     .progress-wrap{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;margin:2px 0 13px}.progress-track{height:5px;border-radius:99px;background:#e4e1da;overflow:hidden}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--pine),#5d786f);transition:.25s}.progress-text{font-size:9px;color:var(--muted);white-space:nowrap}
     .task-list{display:grid;gap:9px}.trip-task{display:grid;grid-template-columns:44px 1fr;gap:8px;align-items:start}.check-zone{position:relative;min-height:100%;display:flex;justify-content:center;padding-top:14px}.check-zone:after{content:"";position:absolute;top:43px;bottom:-15px;left:21px;width:1px;background:#d8d8d1}.trip-task:last-child .check-zone:after{display:none}.task-check{appearance:none;width:26px;height:26px;margin:0;border:1.5px solid #aeb7b1;border-radius:50%;background:var(--paper);display:grid;place-items:center;z-index:1;transition:.2s}.task-check:checked{background:var(--pine);border-color:var(--pine)}.task-check:checked:after{content:"✓";font-size:14px;color:white;font-weight:800}.task-card{padding:13px 13px 12px;border:1px solid var(--line);border-radius:15px;background:var(--paper);transition:.2s}.trip-task.done .task-card{background:var(--done);border-color:#d4ddd6}.trip-task.done .task-card h4{text-decoration:line-through;color:#788079}.trip-task.done .task-card p,.trip-task.done .leg-info,.trip-task.done .task-time{opacity:.55}.task-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.task-card h4{margin:0;font-size:14px;font-weight:650}.task-time{font-size:9px;letter-spacing:.08em;color:var(--bronze);white-space:nowrap;padding-top:2px}.task-card p{margin:4px 0 0;font-size:11px;color:var(--muted)}.leg-info{margin-top:8px;padding-top:8px;border-top:1px dashed #dfdcd4;font-size:10px;color:var(--muted)}.task-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}.map-btn{display:flex;align-items:center;justify-content:center;min-height:42px;border:1px solid #d4d0c8;border-radius:11px;font-size:10px;color:var(--muted);background:#fff}.map-btn.primary{background:var(--pine);color:#fff;border-color:var(--pine)}.journey-foot{margin-top:12px;padding:12px;border-radius:13px;background:#efebe4;color:var(--muted);font-size:10px}
+
     .prep-shell{overflow:hidden}.prep-add{padding:14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fbfaf7,#f7f4ee)}.prep-add-title{font-size:11px;font-weight:700;margin-bottom:8px}.prep-input{width:100%;min-height:44px;border:1px solid #d2cec6;border-radius:12px;background:#fff;padding:10px 11px;font-size:16px;color:var(--ink);outline:none}.prep-input:focus{border-color:#8ea298;box-shadow:0 0 0 3px rgba(24,60,53,.07)}.prep-add-row{display:grid;grid-template-columns:1fr 88px;gap:8px;margin-top:8px}.add-btn{min-height:44px;border:0;border-radius:12px;background:var(--pine);color:#fff;font-size:12px;font-weight:650}.prep-list{padding:2px 14px}.prep-item{display:grid;grid-template-columns:34px 1fr 36px;gap:8px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.prep-item:last-child{border-bottom:0}.prep-check{appearance:none;width:24px;height:24px;margin:0;border:1.5px solid #b6bdb8;border-radius:7px;background:var(--paper);display:grid;place-items:center}.prep-check:checked{background:var(--pine);border-color:var(--pine)}.prep-check:checked:after{content:"✓";font-size:13px;color:#fff;font-weight:800}.prep-item.done .prep-copy{opacity:.46;text-decoration:line-through}.prep-copy b{display:block;font-size:12px}.prep-copy small{display:block;margin-top:2px;font-size:10px;color:var(--muted)}.delete-btn{width:36px;height:36px;border:0;border-radius:10px;background:transparent;color:#a29f98;font-size:18px}.prep-actions{display:flex;justify-content:flex-end;padding:0 14px 12px}.text-btn{min-height:40px;border:0;background:transparent;color:var(--muted);font-size:10px;padding:0 4px}
+
     .notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.note{padding:14px}.note span{display:block;font-size:8px;letter-spacing:.11em;color:var(--muted);margin-bottom:4px}.note b{display:block;font-size:15px;margin-bottom:3px}.note p{margin:0;font-size:10px;color:var(--muted)}details{margin-top:8px;background:rgba(251,250,247,.92);border:1px solid var(--line);border-radius:14px;padding:0 13px}summary{min-height:44px;display:flex;align-items:center;font-size:11px;font-weight:650;cursor:pointer}details p{margin:0 0 12px;font-size:10px;color:var(--muted)}
     .footer{padding:26px 0 4px;text-align:center;color:#8a8c87;font-size:9px}.dock{position:fixed;left:50%;bottom:max(10px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(calc(100% - 24px),406px);display:grid;grid-template-columns:repeat(4,1fr);gap:3px;padding:5px;border:1px solid rgba(210,207,199,.96);border-radius:17px;background:rgba(248,246,241,.9);backdrop-filter:blur(20px);box-shadow:0 12px 32px rgba(34,40,37,.12);z-index:30}.dock a{min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:11px;font-size:10px;color:var(--muted)}.dock a:active{background:#ebe7df;color:var(--pine)}.toast{position:fixed;left:50%;bottom:calc(78px + env(safe-area-inset-bottom));transform:translate(-50%,8px);opacity:0;background:#171a18;color:#fff;padding:8px 12px;border-radius:999px;font-size:10px;pointer-events:none;transition:.2s;z-index:40}.toast.show{opacity:1;transform:translate(-50%,0)}
+    .sync-modal{position:fixed;inset:0;z-index:60;display:none;align-items:flex-end;justify-content:center;background:rgba(14,20,17,.42);backdrop-filter:blur(6px);padding:14px}.sync-modal.show{display:flex}.sync-sheet{width:min(100%,406px);background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:19px 16px calc(16px + env(safe-area-inset-bottom));box-shadow:0 26px 70px rgba(16,24,20,.28)}.sync-sheet h3{margin:0;font-size:18px}.sync-sheet p{margin:6px 0 14px;font-size:11px;color:var(--muted)}.pin-input{width:100%;min-height:48px;border:1px solid #d2cec6;border-radius:13px;background:#fff;padding:10px 12px;font-size:20px;letter-spacing:.18em;text-align:center;outline:none}.pin-input:focus{border-color:#8ea298;box-shadow:0 0 0 3px rgba(24,60,53,.07)}.sync-error{min-height:18px;margin-top:7px;font-size:10px;color:var(--danger);text-align:center}.sync-actions{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;margin-top:8px}.sync-action{min-height:44px;border-radius:12px;border:1px solid #d4d0c8;background:#fff;font-size:11px}.sync-action.primary{border-color:var(--pine);background:var(--pine);color:#fff}.sync-note{margin-top:10px;font-size:9px!important;text-align:center}
     @media(min-width:431px){body{padding:18px 0}.app{border-radius:30px}.hero{margin-top:2px}}
   </style>
 </head>
 <body>
 <main class="app">
-  <div class="topbar"><div class="brand">WUHAN · MID-AUTUMN 2026</div><div class="live" id="liveStatus">行前准备中</div></div>
-  <header class="hero" id="home"><div class="hero-kicker">PRIVATE ITINERARY · 2 PEOPLE</div><h1>武汉，<br>中秋见。</h1><div class="hero-sub">9 月 25 日—27 日｜汉口旧城 · 荆楚文博 · 桂子山 · 黄鹤楼</div><div class="hero-meta"><div class="meta"><span>DURATION</span><b>3 天 2 晚</b></div><div class="meta"><span>BASE</span><b>江汉路江滩</b></div><div class="meta"><span>PEOPLE</span><b>2 人同行</b></div></div><div class="next-panel"><div class="next-label">NEXT MOVE</div><div class="next-title" id="nextEventTitle">CZ3752 · 珠海 → 武汉</div><div class="next-time" id="nextEventTime">9/25 11:15</div><div class="countdown"><div class="count"><strong id="cdD">--</strong><small>DAY</small></div><div class="count"><strong id="cdH">--</strong><small>HR</small></div><div class="count"><strong id="cdM">--</strong><small>MIN</small></div><div class="count"><strong id="cdS">--</strong><small>SEC</small></div></div></div></header>
-  <section id="bookings"><div class="section-head"><h2 class="section-title">行程凭证</h2><div class="section-cap">ESSENTIALS</div></div><div class="panel essentials"><div class="essential-row"><div class="essential-type">OUT</div><div class="essential-main"><b>南方航空 CZ3752</b><span>9/25 11:15 珠海金湾 → 13:05 武汉天河 T3</span><span class="essential-side">去程</span></div></div><div class="essential-row"><div class="essential-type">STAY</div><div class="essential-main"><b>武汉江汉路江滩好百年美仑国际酒店</b><span>9/25 入住 · 9/27 退房｜商务大床房 · 预付双早</span><span class="essential-side">沿江大道 131 号</span></div></div><div class="essential-row"><div class="essential-type">BACK</div><div class="essential-main"><b>中国国航 CA8239</b><span>9/27 19:45 武汉天河 T3 → 21:35 珠海金湾</span><span class="essential-side">返程</span></div></div></div></section>
-  <section id="journey"><div class="section-head"><h2 class="section-title">三日行程</h2><div class="section-cap">TASK JOURNEY</div></div><div class="panel journey"><div class="day-tabs"><button class="day-tab active" data-day="1">DAY 1</button><button class="day-tab" data-day="2">DAY 2</button><button class="day-tab" data-day="3">DAY 3</button></div><div class="journey-head"><div class="journey-headline"><div><h3 id="journeyTitle"></h3><p id="journeyDesc"></p></div><span class="badge" id="journeyBadge"></span></div><div class="day-facts" id="dayFacts"></div></div><div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><div class="progress-text" id="progressText">0/0 完成</div></div><div class="task-list" id="taskList"></div><div class="journey-foot" id="journeyFoot"></div></div></section>
-  <section id="prep"><div class="section-head"><h2 class="section-title">行前准备</h2><div class="section-cap">EDITABLE CHECKLIST</div></div><div class="panel prep-shell"><div class="prep-add"><div class="prep-add-title">新增准备事项</div><input class="prep-input" id="prepTitle" maxlength="60" placeholder="例如：下载武汉离线地图"><div class="prep-add-row"><input class="prep-input" id="prepDeadline" maxlength="30" placeholder="时间/备注（可选）"><button class="add-btn" id="addPrep">添加</button></div></div><div class="prep-list" id="prepList"></div><div class="prep-actions"><button class="text-btn" id="resetPrep">撤销全部完成状态</button></div></div></section>
-  <section id="notes"><div class="section-head"><h2 class="section-title">现场规则</h2><div class="section-cap">FIELD NOTES</div></div><div class="notes-grid"><div class="panel note"><span>MISS MUSEUM</span><b>不找第三方</b><p>省博未约到，改东湖 + 提前进华师。</p></div><div class="panel note"><span>BAD WEATHER</span><b>先删东湖</b><p>保留省博、华师与返程缓冲。</p></div><div class="panel note"><span>FERRY QUEUE</span><b>30 分钟止损</b><p>等待过长直接改网约车。</p></div><div class="panel note"><span>AIRPORT LINE</span><b>15:45 离店</b><p>返程日一切服从 19:45 航班。</p></div></div><details><summary>两人点单策略</summary><p>过早共享 3 个品类；楚菜用“1 份鱼/肉 + 1 份汤 + 1 份蔬菜”即可。重点是顺路体验，不为网红单品折返。</p></details><details><summary>随身清单</summary><p>身份证原件、电子登机牌/订单截图、省博预约信息、轻便雨伞、防晒、薄外套、舒适步行鞋、充电宝与充电线、常用药。</p></details></section>
+  <div class="topbar"><div class="brand">WUHAN · MID-AUTUMN 2026</div><div class="status-stack"><div class="live" id="liveStatus">行前准备中</div><button class="sync-pill local" id="syncStatus" type="button">本机模式</button></div></div>
+
+  <header class="hero" id="home">
+    <div class="hero-kicker">PRIVATE ITINERARY · 2 PEOPLE</div>
+    <h1>武汉，<br>中秋见。</h1>
+    <div class="hero-sub">9 月 25 日—27 日｜汉口旧城 · 荆楚文博 · 桂子山 · 黄鹤楼</div>
+    <div class="hero-meta">
+      <div class="meta"><span>DURATION</span><b>3 天 2 晚</b></div>
+      <div class="meta"><span>BASE</span><b>江汉路江滩</b></div>
+      <div class="meta"><span>PEOPLE</span><b>2 人同行</b></div>
+    </div>
+    <div class="next-panel">
+      <div class="next-label">NEXT MOVE</div><div class="next-title" id="nextEventTitle">CZ3752 · 珠海 → 武汉</div><div class="next-time" id="nextEventTime">9/25 11:15</div>
+      <div class="countdown"><div class="count"><strong id="cdD">--</strong><small>DAY</small></div><div class="count"><strong id="cdH">--</strong><small>HR</small></div><div class="count"><strong id="cdM">--</strong><small>MIN</small></div><div class="count"><strong id="cdS">--</strong><small>SEC</small></div></div>
+    </div>
+  </header>
+
+  <section id="bookings">
+    <div class="section-head"><h2 class="section-title">行程凭证</h2><div class="section-cap">ESSENTIALS</div></div>
+    <div class="panel essentials">
+      <div class="essential-row"><div class="essential-type">OUT</div><div class="essential-main"><b>南方航空 CZ3752</b><span>9/25 11:15 珠海金湾 → 13:05 武汉天河 T3</span><span class="essential-side">去程</span></div></div>
+      <div class="essential-row"><div class="essential-type">STAY</div><div class="essential-main"><b>武汉江汉路江滩好百年美仑国际酒店</b><span>9/25 入住 · 9/27 退房｜商务大床房 · 预付双早</span><span class="essential-side">沿江大道 131 号</span></div></div>
+      <div class="essential-row"><div class="essential-type">BACK</div><div class="essential-main"><b>中国国航 CA8239</b><span>9/27 19:45 武汉天河 T3 → 21:35 珠海金湾</span><span class="essential-side">返程</span></div></div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="section-head"><h2 class="section-title">三日行程</h2><div class="section-cap">TASK JOURNEY</div></div>
+    <div class="panel journey">
+      <div class="day-tabs"><button class="day-tab active" data-day="1">DAY 1</button><button class="day-tab" data-day="2">DAY 2</button><button class="day-tab" data-day="3">DAY 3</button></div>
+      <div class="journey-head"><div class="journey-headline"><div><h3 id="journeyTitle"></h3><p id="journeyDesc"></p></div><span class="badge" id="journeyBadge"></span></div><div class="day-facts" id="dayFacts"></div></div>
+      <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><div class="progress-text" id="progressText">0/0 完成</div></div>
+      <div class="task-list" id="taskList"></div>
+      <div class="journey-foot" id="journeyFoot"></div>
+    </div>
+  </section>
+
+  <section id="prep">
+    <div class="section-head"><h2 class="section-title">行前准备</h2><div class="section-cap">EDITABLE CHECKLIST</div></div>
+    <div class="panel prep-shell">
+      <div class="prep-add"><div class="prep-add-title">新增准备事项</div><input class="prep-input" id="prepTitle" maxlength="60" placeholder="例如：下载武汉离线地图"><div class="prep-add-row"><input class="prep-input" id="prepDeadline" maxlength="30" placeholder="时间/备注（可选）"><button class="add-btn" id="addPrep">添加</button></div></div>
+      <div class="prep-list" id="prepList"></div><div class="prep-actions"><button class="text-btn" id="resetPrep">撤销全部完成状态</button></div>
+    </div>
+  </section>
+
+  <section id="notes">
+    <div class="section-head"><h2 class="section-title">现场规则</h2><div class="section-cap">FIELD NOTES</div></div>
+    <div class="notes-grid"><div class="panel note"><span>MISS MUSEUM</span><b>不找第三方</b><p>省博未约到，改东湖 + 提前进华师。</p></div><div class="panel note"><span>BAD WEATHER</span><b>先删东湖</b><p>保留省博、华师与返程缓冲。</p></div><div class="panel note"><span>FERRY QUEUE</span><b>30 分钟止损</b><p>等待过长直接改网约车。</p></div><div class="panel note"><span>AIRPORT LINE</span><b>15:45 离店</b><p>返程日一切服从 19:45 航班。</p></div></div>
+    <details><summary>两人点单策略</summary><p>过早共享 3 个品类；楚菜用“1 份鱼/肉 + 1 份汤 + 1 份蔬菜”即可。重点是顺路体验，不为网红单品折返。</p></details>
+    <details><summary>随身清单</summary><p>身份证原件、电子登机牌/订单截图、省博预约信息、轻便雨伞、防晒、薄外套、舒适步行鞋、充电宝与充电线、常用药。</p></details>
+  </section>
+
   <div class="footer">WUHAN MID-AUTUMN JOURNEY · V3<br>行程以实时路况、景区与轮渡官方信息为准。</div>
 </main>
-<nav class="dock"><a href="#home">首页</a><a href="#journey">行程</a><a href="#prep">准备</a><a href="#notes">提示</a></nav><div class="toast" id="toast">已更新</div>
+<nav class="dock"><a href="#home">首页</a><a href="#journey">行程</a><a href="#prep">准备</a><a href="#notes">提示</a></nav>
+<div class="sync-modal" id="syncModal" aria-hidden="true">
+  <div class="sync-sheet">
+    <h3 id="syncModalTitle">开启多设备同步</h3>
+    <p id="syncModalDesc">设置一个 4—12 位数字 PIN。另一台设备输入相同 PIN，即可读取同一份行程数据。</p>
+    <input class="pin-input" id="syncPinInput" type="password" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="输入同步 PIN">
+    <div class="sync-error" id="syncError"></div>
+    <div class="sync-actions"><button class="sync-action" id="syncLater" type="button">暂时本机使用</button><button class="sync-action primary" id="syncSubmit" type="button">开启同步</button></div>
+    <p class="sync-note">PIN 只用于本旅行手册同步，不会写进 GitHub 代码。</p>
+  </div>
+</div>
+<div class="toast" id="toast">已更新</div>
+
 <script>
-const itinerary=[{title:"CZ3752 · 珠海 → 武汉",time:"2026-09-25T11:15:00+08:00",label:"9/25 11:15"},{title:"抵达武汉天河 T3",time:"2026-09-25T13:05:00+08:00",label:"9/25 13:05"},{title:"湖北省博物馆",time:"2026-09-26T09:00:00+08:00",label:"9/26 09:00"},{title:"黄鹤楼",time:"2026-09-27T09:00:00+08:00",label:"9/27 09:00"},{title:"CA8239 · 武汉 → 珠海",time:"2026-09-27T19:45:00+08:00",label:"9/27 19:45"}].map(x=>({...x,ms:new Date(x.time).getTime()}));
+const itinerary=[
+ {title:"CZ3752 · 珠海 → 武汉",time:"2026-09-25T11:15:00+08:00",label:"9/25 11:15"},{title:"抵达武汉天河 T3",time:"2026-09-25T13:05:00+08:00",label:"9/25 13:05"},{title:"湖北省博物馆",time:"2026-09-26T09:00:00+08:00",label:"9/26 09:00"},{title:"黄鹤楼",time:"2026-09-27T09:00:00+08:00",label:"9/27 09:00"},{title:"CA8239 · 武汉 → 珠海",time:"2026-09-27T19:45:00+08:00",label:"9/27 19:45"}
+].map(x=>({...x,ms:new Date(x.time).getTime()}));
 function pad(n){return String(n).padStart(2,"0")}
 function updateCountdown(){const now=Date.now(),next=itinerary.find(x=>x.ms>now),status=document.getElementById("liveStatus");if(!next){document.getElementById("nextEventTitle").textContent="旅程结束 · 欢迎回家";document.getElementById("nextEventTime").textContent="2026 中秋";["cdD","cdH","cdM","cdS"].forEach(id=>document.getElementById(id).textContent="00");status.textContent="旅程已完成";return}document.getElementById("nextEventTitle").textContent=next.title;document.getElementById("nextEventTime").textContent=next.label;const d=Math.max(0,next.ms-now);document.getElementById("cdD").textContent=pad(Math.floor(d/86400000));document.getElementById("cdH").textContent=pad(Math.floor(d%86400000/3600000));document.getElementById("cdM").textContent=pad(Math.floor(d%3600000/60000));document.getElementById("cdS").textContent=pad(Math.floor(d%60000/1000));const start=new Date("2026-09-25T00:00:00+08:00").getTime(),end=new Date("2026-09-28T00:00:00+08:00").getTime();status.textContent=now<start?"行前准备中":(now<end?"武汉旅行中":"旅程已完成")}
 updateCountdown();setInterval(updateCountdown,1000);
-const days={1:{title:"落地汉口 · 百年街区与江景",badge:"9/25 · 不跨江",desc:"第一天只做机场进城与汉口顺向游览，避免首日过度消耗。",facts:[["主区域","汉口"],["方式","打车 + 步行"],["原则","不折返"]],foot:"先切到黎黄陂路起点，再一路走向江汉关和江滩；去程延误时只压缩街区，不影响后两天。",tasks:[{id:"d1-airport",t:"13:05",name:"抵达武汉天河 T3",desc:"取行李后直接进城；明显拥堵时改地铁 2 号线。",place:"武汉天河国际机场T3",leg:"网约车 50–75 分钟｜拥堵时地铁 2 号线"},{id:"d1-hotel",t:"14:45",name:"酒店入住 / 短休",desc:"补水、整理随身物品，证件与贵重物品随身。",place:"武汉江汉路江滩好百年美仑国际酒店",leg:"短途休整后出发"},{id:"d1-walk",t:"15:50",name:"汉口历史风貌步行",desc:"黎黄陂路 → 巴公房子外观 → 咸安坊 → 青岛路 → 江汉关。",place:"黎黄陂路 武汉",leg:"约 1.8–3 km 步行"},{id:"d1-dinner",t:"17:40",name:"湖北菜晚餐",desc:"刘胖子家常菜或江汉路 / 洞庭街顺路楚菜馆。",place:"刘胖子家常菜 黄陂街95号 武汉",leg:"不为网红店折返"},{id:"d1-river",t:"19:20",name:"汉口江滩赏月",desc:"人流密集时沿开阔江岸分散观看，之后步行回酒店。",place:"汉口江滩 武汉"}]},2:{title:"省博 · 东湖 · 桂子山",badge:"9/26 · 武昌",desc:"省博和华师是核心，东湖是天气或体力不足时第一个可删环节。",facts:[["优先级","省博 > 华师"],["弹性项","东湖"],["风险","省博超时"]],foot:"不要在武昌来回折返：省博 → 东湖 → 华师一路推进；任何延误都优先保省博和华师。",tasks:[{id:"d2-breakfast",t:"07:00",name:"酒店轻早餐",desc:"轻量进食，08:05 左右出发。",place:"武汉江汉路江滩好百年美仑国际酒店",leg:"08:05 前后离店"},{id:"d2-museum",t:"09:00",name:"湖北省博物馆",desc:"先曾侯乙、越王勾践剑、曾世家，再补其他展厅。",place:"湖北省博物馆",leg:"网约车 25–40 分钟"},{id:"d2-lunch",t:"12:10",name:"顺路楚菜午餐",desc:"东湖路至街道口区域，优先武昌鱼 / 三蒸 + 藕汤。",place:"东湖路 武汉",leg:"不绕去远距离网红店"},{id:"d2-lake",t:"13:20",name:"东湖听涛短线",desc:"梨园广场 → 行吟阁 → 湖边栈道，控制 60—75 分钟。",place:"东湖听涛景区 梨园广场 武汉",leg:"下雨或省博超时：直接取消"},{id:"d2-ccnu",t:"15:30",name:"华中师范大学 · 桂子山",desc:"南门入 → 西区历史建筑 → 博雅广场 / 图书馆 → 校园公共空间。",place:"华中师范大学 南门 武汉",leg:"预留约 2.5 小时"},{id:"d2-dinner",t:"18:20",name:"校园晚餐 / 虎泉或广埠屯",desc:"食堂营业则优先校内，否则就近用餐后回汉口。",place:"华中师范大学 武汉"}]},3:{title:"过早 · 黄鹤楼 · 轮渡闭环",badge:"9/27 · 返程",desc:"返程日先去武昌，再以轮渡回汉口；所有安排服从机场缓冲。",facts:[["跨江","轮渡优先"],["止损","排队 >30 分钟"],["红线","15:45 离店"]],foot:"轮渡是加分项而非硬任务；停航、限流或排队过长立即改网约车，不压缩返程机场缓冲。",tasks:[{id:"d3-checkout",t:"07:00",name:"退房 · 行李寄存酒店",desc:"只带证件、充电宝、雨具和水出门。",place:"武汉江汉路江滩好百年美仑国际酒店",leg:"大件行李留在汉口"},{id:"d3-breakfast",t:"07:30",name:"粮道街过早",desc:"两人共享 3 样即可，不为长队执念。",place:"粮道街 武汉",leg:"网约车 20–30 分钟"},{id:"d3-tower",t:"09:00",name:"黄鹤楼",desc:"先主楼，再白云阁与园林；主楼排队过长时先走外围。",place:"黄鹤楼公园 武汉",leg:"短打车 / 步行 10–20 分钟"},{id:"d3-ferry",t:"11:20",name:"中华路 → 武汉关轮渡",desc:"等待预计超过 30 分钟，立即改网约车回汉口。",place:"中华路码头 武汉",leg:"含排队预计 30–60 分钟"},{id:"d3-hankou",t:"12:20",name:"汉口午间收尾",desc:"轻午餐、江汉路散步、少量伴手礼，14:50 前回酒店附近。",place:"江汉路 武汉",leg:"不再安排大餐或远距离项目"},{id:"d3-airport",t:"15:45",name:"取行李 · 前往天河机场",desc:"15:45 准时离店；交通异常时 16:00 是不可突破的最晚线。",place:"武汉天河国际机场T3",leg:"机场缓冲不可压缩"},{id:"d3-flight",t:"19:45",name:"CA8239 · 武汉 → 珠海",desc:"完成返程登机。",place:"武汉天河国际机场T3"}]}};
+
+const days={
+ 1:{title:"落地汉口 · 百年街区与江景",badge:"9/25 · 不跨江",desc:"第一天只做机场进城与汉口顺向游览，避免首日过度消耗。",facts:[["主区域","汉口"],["方式","打车 + 步行"],["原则","不折返"]],foot:"先切到黎黄陂路起点，再一路走向江汉关和江滩；去程延误时只压缩街区，不影响后两天。",tasks:[
+  {id:"d1-airport",t:"13:05",name:"抵达武汉天河 T3",desc:"取行李后直接进城；明显拥堵时改地铁 2 号线。",place:"武汉天河国际机场T3",leg:"网约车 50–75 分钟｜拥堵时地铁 2 号线"},
+  {id:"d1-hotel",t:"14:45",name:"酒店入住 / 短休",desc:"补水、整理随身物品，证件与贵重物品随身。",place:"武汉江汉路江滩好百年美仑国际酒店",leg:"短途休整后出发"},
+  {id:"d1-walk",t:"15:50",name:"汉口历史风貌步行",desc:"黎黄陂路 → 巴公房子外观 → 咸安坊 → 青岛路 → 江汉关。",place:"黎黄陂路 武汉",leg:"约 1.8–3 km 步行"},
+  {id:"d1-dinner",t:"17:40",name:"湖北菜晚餐",desc:"刘胖子家常菜或江汉路 / 洞庭街顺路楚菜馆。",place:"刘胖子家常菜 黄陂街95号 武汉",leg:"不为网红店折返"},
+  {id:"d1-river",t:"19:20",name:"汉口江滩赏月",desc:"人流密集时沿开阔江岸分散观看，之后步行回酒店。",place:"汉口江滩 武汉"}
+ ]},
+ 2:{title:"省博 · 东湖 · 桂子山",badge:"9/26 · 武昌",desc:"省博和华师是核心，东湖是天气或体力不足时第一个可删环节。",facts:[["优先级","省博 > 华师"],["弹性项","东湖"],["风险","省博超时"]],foot:"不要在武昌来回折返：省博 → 东湖 → 华师一路推进；任何延误都优先保省博和华师。",tasks:[
+  {id:"d2-breakfast",t:"07:00",name:"酒店轻早餐",desc:"轻量进食，08:05 左右出发。",place:"武汉江汉路江滩好百年美仑国际酒店",leg:"08:05 前后离店"},
+  {id:"d2-museum",t:"09:00",name:"湖北省博物馆",desc:"先曾侯乙、越王勾践剑、曾世家，再补其他展厅。",place:"湖北省博物馆",leg:"网约车 25–40 分钟"},
+  {id:"d2-lunch",t:"12:10",name:"顺路楚菜午餐",desc:"东湖路至街道口区域，优先武昌鱼 / 三蒸 + 藕汤。",place:"东湖路 武汉",leg:"不绕去远距离网红店"},
+  {id:"d2-lake",t:"13:20",name:"东湖听涛短线",desc:"梨园广场 → 行吟阁 → 湖边栈道，控制 60—75 分钟。",place:"东湖听涛景区 梨园广场 武汉",leg:"下雨或省博超时：直接取消"},
+  {id:"d2-ccnu",t:"15:30",name:"华中师范大学 · 桂子山",desc:"南门入 → 西区历史建筑 → 博雅广场 / 图书馆 → 校园公共空间。",place:"华中师范大学 南门 武汉",leg:"预留约 2.5 小时"},
+  {id:"d2-dinner",t:"18:20",name:"校园晚餐 / 虎泉或广埠屯",desc:"食堂营业则优先校内，否则就近用餐后回汉口。",place:"华中师范大学 武汉"}
+ ]},
+ 3:{title:"过早 · 黄鹤楼 · 轮渡闭环",badge:"9/27 · 返程",desc:"返程日先去武昌，再以轮渡回汉口；所有安排服从机场缓冲。",facts:[["跨江","轮渡优先"],["止损","排队 >30 分钟"],["红线","15:45 离店"]],foot:"轮渡是加分项而非硬任务；停航、限流或排队过长立即改网约车，不压缩返程机场缓冲。",tasks:[
+  {id:"d3-checkout",t:"07:00",name:"退房 · 行李寄存酒店",desc:"只带证件、充电宝、雨具和水出门。",place:"武汉江汉路江滩好百年美仑国际酒店",leg:"大件行李留在汉口"},
+  {id:"d3-breakfast",t:"07:30",name:"粮道街过早",desc:"两人共享 3 样即可，不为长队执念。",place:"粮道街 武汉",leg:"网约车 20–30 分钟"},
+  {id:"d3-tower",t:"09:00",name:"黄鹤楼",desc:"先主楼，再白云阁与园林；主楼排队过长时先走外围。",place:"黄鹤楼公园 武汉",leg:"短打车 / 步行 10–20 分钟"},
+  {id:"d3-ferry",t:"11:20",name:"中华路 → 武汉关轮渡",desc:"等待预计超过 30 分钟，立即改网约车回汉口。",place:"中华路码头 武汉",leg:"含排队预计 30–60 分钟"},
+  {id:"d3-hankou",t:"12:20",name:"汉口午间收尾",desc:"轻午餐、江汉路散步、少量伴手礼，14:50 前回酒店附近。",place:"江汉路 武汉",leg:"不再安排大餐或远距离项目"},
+  {id:"d3-airport",t:"15:45",name:"取行李 · 前往天河机场",desc:"15:45 准时离店；交通异常时 16:00 是不可突破的最晚线。",place:"武汉天河国际机场T3",leg:"机场缓冲不可压缩"},
+  {id:"d3-flight",t:"19:45",name:"CA8239 · 武汉 → 珠海",desc:"完成返程登机。",place:"武汉天河国际机场T3"}
+ ]}
+};
 const ROUTE_STORE="wuhan-trip-2026-route-v3";let activeDay="1";
 function readJson(key,fallback){try{return JSON.parse(localStorage.getItem(key)||JSON.stringify(fallback))}catch(e){return fallback}}
-let routeState=readJson(ROUTE_STORE,{});function saveRoute(){try{localStorage.setItem(ROUTE_STORE,JSON.stringify(routeState))}catch(e){}}
-function amap(place){return `https://uri.amap.com/search?keyword=${encodeURIComponent(place)}&city=%E6%AD%A6%E6%B1%89&view=map&src=wuhan-midautumn-2026`}function apple(place){return `https://maps.apple.com/?q=${encodeURIComponent(place)}`}
+let routeState=readJson(ROUTE_STORE,{});
+function saveRoute(){localStorage.setItem(ROUTE_STORE,JSON.stringify(routeState));scheduleCloudPush()}
+function amap(place){return `https://uri.amap.com/search?keyword=${encodeURIComponent(place)}&city=%E6%AD%A6%E6%B1%89&view=map&src=wuhan-midautumn-2026`}
+function apple(place){return `https://maps.apple.com/?q=${encodeURIComponent(place)}`}
 function updateProgress(){const tasks=days[activeDay].tasks,done=tasks.filter(t=>routeState[t.id]).length,pct=tasks.length?done/tasks.length*100:0;document.getElementById("progressBar").style.width=`${pct}%`;document.getElementById("progressText").textContent=`${done}/${tasks.length} 完成`}
 function renderDay(day){activeDay=String(day);const d=days[activeDay];document.getElementById("journeyTitle").textContent=d.title;document.getElementById("journeyDesc").textContent=d.desc;document.getElementById("journeyBadge").textContent=d.badge;document.getElementById("dayFacts").innerHTML=d.facts.map(x=>`<div class="fact-chip"><span>${x[0]}</span><b>${x[1]}</b></div>`).join("");document.getElementById("taskList").innerHTML=d.tasks.map(task=>{const done=!!routeState[task.id];return `<div class="trip-task ${done?"done":""}" data-task="${task.id}"><div class="check-zone"><input class="task-check" type="checkbox" aria-label="完成 ${task.name}" ${done?"checked":""}></div><div class="task-card"><div class="task-top"><div><h4>${task.name}</h4><p>${task.desc}</p></div><div class="task-time">${task.t}</div></div>${task.leg?`<div class="leg-info">${task.leg}</div>`:""}<div class="task-actions"><a class="map-btn primary" href="${amap(task.place)}" target="_blank" rel="noopener">高德导航</a><a class="map-btn" href="${apple(task.place)}" target="_blank" rel="noopener">Apple 地图</a></div></div></div>`}).join("");document.getElementById("journeyFoot").textContent=d.foot;document.querySelectorAll(".task-check").forEach(cb=>cb.addEventListener("change",e=>{const row=e.target.closest(".trip-task"),id=row.dataset.task;routeState[id]=e.target.checked;row.classList.toggle("done",e.target.checked);saveRoute();updateProgress();showToast(e.target.checked?"任务已完成":"已恢复任务")}));updateProgress()}
 document.querySelectorAll(".day-tab").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".day-tab").forEach(b=>b.classList.remove("active"));btn.classList.add("active");renderDay(btn.dataset.day)}));renderDay(1);
-const defaultPrep=[{id:"museum",title:"预约 9/26 湖北省博物馆",detail:"目标 09:00—10:00 入馆；实名预约，携带证件原件。",deadline:"9/21 17:18",fixed:true},{id:"ccnu",title:"复核华师中秋入校规则",detail:"确认社会公众步行入校是否有临时调整。",deadline:"9/22—24",fixed:true},{id:"tower",title:"复核黄鹤楼节日售票",detail:"大型节假日是否切换分时售票，以官方公告为准。",deadline:"9/23—24",fixed:true},{id:"ferry",title:"复核武中线轮渡公告",detail:"重点看预约、限流、停航和码头调整。",deadline:"9/24",fixed:true},{id:"weather",title:"查看武汉逐小时天气",detail:"决定雨具、防晒、薄外套，以及是否保留东湖。",deadline:"9/22—24",fixed:true},{id:"flight",title:"保存电子登机牌 / 订单截图",detail:"确保两人航班、酒店与预约信息离线可查看。",deadline:"出发前",fixed:true}];
-const PREP_STORE="wuhan-trip-2026-prep-v3",OLD_PREP_STORE="wuhan-trip-2026-todos-v2";let prepState=readJson(PREP_STORE,null);if(!prepState){const old=readJson(OLD_PREP_STORE,{});prepState={done:{...old},custom:[]}}
-function savePrep(){try{localStorage.setItem(PREP_STORE,JSON.stringify(prepState))}catch(e){}}function esc(v){return String(v).replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]))}
-function renderPrep(){const all=[...defaultPrep,...prepState.custom];document.getElementById("prepList").innerHTML=all.map(item=>{const done=!!prepState.done[item.id];return `<div class="prep-item ${done?"done":""}" data-id="${item.id}"><input class="prep-check" type="checkbox" ${done?"checked":""} aria-label="完成 ${esc(item.title)}"><div class="prep-copy"><b>${esc(item.title)}</b><small>${esc(item.detail||item.deadline||"")}${item.detail&&item.deadline?` · ${esc(item.deadline)}`:""}</small></div>${item.fixed?"<span></span>":`<button class="delete-btn" data-delete="${item.id}" aria-label="删除">×</button>`}</div>`}).join("");document.querySelectorAll(".prep-check").forEach(cb=>cb.addEventListener("change",e=>{const row=e.target.closest(".prep-item"),id=row.dataset.id;prepState.done[id]=e.target.checked;row.classList.toggle("done",e.target.checked);savePrep();showToast(e.target.checked?"准备项已完成":"已恢复准备项")}));document.querySelectorAll("[data-delete]").forEach(btn=>btn.addEventListener("click",()=>{const id=btn.dataset.delete;prepState.custom=prepState.custom.filter(x=>x.id!==id);delete prepState.done[id];savePrep();renderPrep();showToast("已删除")}))}
+
+const defaultPrep=[
+ {id:"museum",title:"预约 9/26 湖北省博物馆",detail:"目标 09:00—10:00 入馆；实名预约，携带证件原件。",deadline:"9/21 17:18",fixed:true},
+ {id:"ccnu",title:"复核华师中秋入校规则",detail:"确认社会公众步行入校是否有临时调整。",deadline:"9/22—24",fixed:true},
+ {id:"tower",title:"复核黄鹤楼节日售票",detail:"大型节假日是否切换分时售票，以官方公告为准。",deadline:"9/23—24",fixed:true},
+ {id:"ferry",title:"复核武中线轮渡公告",detail:"重点看预约、限流、停航和码头调整。",deadline:"9/24",fixed:true},
+ {id:"weather",title:"查看武汉逐小时天气",detail:"决定雨具、防晒、薄外套，以及是否保留东湖。",deadline:"9/22—24",fixed:true},
+ {id:"flight",title:"保存电子登机牌 / 订单截图",detail:"确保两人航班、酒店与预约信息离线可查看。",deadline:"出发前",fixed:true}
+];
+const PREP_STORE="wuhan-trip-2026-prep-v3";const OLD_PREP_STORE="wuhan-trip-2026-todos-v2";
+let prepState=readJson(PREP_STORE,null);if(!prepState){const old=readJson(OLD_PREP_STORE,{});prepState={done:{...old},custom:[]}}
+function savePrep(){localStorage.setItem(PREP_STORE,JSON.stringify(prepState));scheduleCloudPush()}
+function esc(v){return String(v).replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]))}
+function renderPrep(){const all=[...defaultPrep,...prepState.custom];document.getElementById("prepList").innerHTML=all.map(item=>{const done=!!prepState.done[item.id];return `<div class="prep-item ${done?"done":""}" data-id="${item.id}"><input class="prep-check" type="checkbox" ${done?"checked":""} aria-label="完成 ${esc(item.title)}"><div class="prep-copy"><b>${esc(item.title)}</b><small>${esc(item.detail||item.deadline||"")}${item.detail&&item.deadline?` · ${esc(item.deadline)}`:""}</small></div>${item.fixed?"<span></span>":`<button class="delete-btn" data-delete="${item.id}" aria-label="删除">×</button>`}</div>`}).join("");document.querySelectorAll(".prep-check").forEach(cb=>cb.addEventListener("change",e=>{const row=e.target.closest(".prep-item"),id=row.dataset.id;prepState.done[id]=e.target.checked;row.classList.toggle("done",e.target.checked);savePrep();showToast(e.target.checked?"准备项已完成":"已恢复准备项")}));document.querySelectorAll("[data-delete]").forEach(btn=>btn.addEventListener("click",()=>{const id=btn.dataset.delete;prepState.custom=prepState.custom.filter(x=>x.id!==id);delete prepState.done[id];savePrep();renderPrep();showToast("已删除") }))}
 function addPrep(){const title=document.getElementById("prepTitle").value.trim(),deadline=document.getElementById("prepDeadline").value.trim();if(!title){showToast("先填写准备事项");return}const id=`custom-${Date.now()}-${Math.random().toString(36).slice(2,6)}`;prepState.custom.unshift({id,title,detail:"",deadline,fixed:false});prepState.done[id]=false;savePrep();document.getElementById("prepTitle").value="";document.getElementById("prepDeadline").value="";renderPrep();showToast("已添加准备事项")}
 document.getElementById("addPrep").addEventListener("click",addPrep);document.getElementById("prepTitle").addEventListener("keydown",e=>{if(e.key==="Enter")addPrep()});document.getElementById("prepDeadline").addEventListener("keydown",e=>{if(e.key==="Enter")addPrep()});document.getElementById("resetPrep").addEventListener("click",()=>{prepState.done={};savePrep();renderPrep();showToast("已撤销全部完成状态")});renderPrep();
+
+const CLOUD_PIN_KEY="wuhan-trip-2026-sync-pin-v1";
+let cloudEnabled=false,cloudUpdatedAt="",localDirty=false,pushTimer=null,pollTimer=null,suppressCloudPush=false,syncModalMode="login";
+
+function setSyncStatus(text,state="local"){
+  const el=document.getElementById("syncStatus");
+  el.textContent=text;
+  el.className=`sync-pill ${state}`;
+}
+function getSyncState(){return {routeState:{...routeState},prepState:{done:{...(prepState.done||{})},custom:[...(prepState.custom||[])]}}}
+function applyCloudState(state){
+  if(!state||typeof state!=="object")return;
+  suppressCloudPush=true;
+  routeState=state.routeState&&typeof state.routeState==="object"?state.routeState:{};
+  const incomingPrep=state.prepState&&typeof state.prepState==="object"?state.prepState:{done:{},custom:[]};
+  prepState={done:incomingPrep.done||{},custom:Array.isArray(incomingPrep.custom)?incomingPrep.custom:[]};
+  localStorage.setItem(ROUTE_STORE,JSON.stringify(routeState));
+  localStorage.setItem(PREP_STORE,JSON.stringify(prepState));
+  renderDay(activeDay);renderPrep();
+  suppressCloudPush=false;
+}
+function openSyncModal(mode){
+  syncModalMode=mode;
+  const modal=document.getElementById("syncModal"),title=document.getElementById("syncModalTitle"),desc=document.getElementById("syncModalDesc"),submit=document.getElementById("syncSubmit"),input=document.getElementById("syncPinInput");
+  document.getElementById("syncError").textContent="";
+  input.value="";
+  if(mode==="setup"){
+    title.textContent="开启多设备同步";
+    desc.textContent="首次使用：设置一个 4—12 位数字 PIN。当前设备上的勾选与新增事项会作为云端初始数据。";
+    submit.textContent="设置 PIN 并同步";
+  }else{
+    title.textContent="连接旅行手册";
+    desc.textContent="请输入这份旅行手册的同步 PIN，连接后会读取云端最新数据。";
+    submit.textContent="连接并同步";
+  }
+  modal.classList.add("show");modal.setAttribute("aria-hidden","false");
+  setTimeout(()=>input.focus(),120);
+}
+function closeSyncModal(){const modal=document.getElementById("syncModal");modal.classList.remove("show");modal.setAttribute("aria-hidden","true")}
+async function cloudRequest(method,body,pinOverride){
+  const pin=pinOverride!==undefined?pinOverride:(localStorage.getItem(CLOUD_PIN_KEY)||"");
+  const headers={"Content-Type":"application/json"};
+  if(pin)headers["X-Trip-Pin"]=pin;
+  return fetch("/api/state",{method,headers,body:body?JSON.stringify(body):undefined,cache:"no-store"});
+}
+async function syncFromCloud(showPrompt=true){
+  if(localDirty)return;
+  setSyncStatus("同步中","syncing");
+  try{
+    const res=await cloudRequest("GET");
+    if(res.status===503){cloudEnabled=false;setSyncStatus("等待云端配置","local");return}
+    if(res.status===428){cloudEnabled=false;setSyncStatus("待开启同步","local");if(showPrompt)openSyncModal("setup");return}
+    if(res.status===401){cloudEnabled=false;setSyncStatus("需要 PIN","error");if(showPrompt)openSyncModal("login");return}
+    if(!res.ok)throw new Error(`sync ${res.status}`);
+    const data=await res.json();
+    cloudEnabled=true;cloudUpdatedAt=data.updatedAt||"";
+    applyCloudState(data.state||{});
+    setSyncStatus("云端已同步","synced");
+    startPolling();
+  }catch(e){
+    cloudEnabled=false;setSyncStatus(navigator.onLine?"同步暂不可用":"离线本机模式","error");
+  }
+}
+async function setupOrLogin(){
+  const input=document.getElementById("syncPinInput"),err=document.getElementById("syncError");
+  const pin=input.value.trim();
+  if(!/^\d{4,12}$/.test(pin)){err.textContent="请输入 4—12 位数字 PIN";return}
+  err.textContent="正在连接…";
+  try{
+    let res;
+    if(syncModalMode==="setup"){
+      res=await cloudRequest("POST",{action:"setup",pin,state:getSyncState()},pin);
+    }else{
+      res=await cloudRequest("GET",null,pin);
+    }
+    if(res.status===409){err.textContent="云端已设置 PIN，请使用已有 PIN 登录";syncModalMode="login";document.getElementById("syncSubmit").textContent="连接并同步";return}
+    if(res.status===401){err.textContent="PIN 不正确";return}
+    if(res.status===503){err.textContent="D1 数据库尚未绑定";return}
+    if(!res.ok){err.textContent="暂时无法连接，请稍后重试";return}
+    const data=await res.json();
+    localStorage.setItem(CLOUD_PIN_KEY,pin);
+    cloudEnabled=true;cloudUpdatedAt=data.updatedAt||"";
+    if(data.state)applyCloudState(data.state);
+    localDirty=false;closeSyncModal();setSyncStatus("云端已同步","synced");showToast("多设备同步已开启");startPolling();
+  }catch(e){err.textContent=navigator.onLine?"连接失败，请稍后重试":"当前离线，请联网后重试"}
+}
+function scheduleCloudPush(){
+  if(suppressCloudPush)return;
+  localDirty=true;
+  if(!cloudEnabled){setSyncStatus(localStorage.getItem(CLOUD_PIN_KEY)?"待同步":"本机模式",localStorage.getItem(CLOUD_PIN_KEY)?"syncing":"local");return}
+  setSyncStatus("待同步","syncing");
+  clearTimeout(pushTimer);pushTimer=setTimeout(pushCloudState,350);
+}
+async function pushCloudState(){
+  if(!cloudEnabled)return;
+  try{
+    const res=await cloudRequest("PUT",{state:getSyncState()});
+    if(res.status===401){cloudEnabled=false;localStorage.removeItem(CLOUD_PIN_KEY);setSyncStatus("需要 PIN","error");openSyncModal("login");return}
+    if(!res.ok)throw new Error(`push ${res.status}`);
+    const data=await res.json();cloudUpdatedAt=data.updatedAt||cloudUpdatedAt;localDirty=false;setSyncStatus("云端已同步","synced");
+  }catch(e){
+    setSyncStatus("待联网同步","error");
+    clearTimeout(pushTimer);pushTimer=setTimeout(()=>{if(navigator.onLine&&localDirty)pushCloudState()},8000);
+  }
+}
+async function pollCloud(){
+  if(!cloudEnabled||localDirty||document.hidden)return;
+  try{
+    const res=await cloudRequest("GET");
+    if(!res.ok)return;
+    const data=await res.json();
+    if(data.updatedAt&&data.updatedAt!==cloudUpdatedAt){cloudUpdatedAt=data.updatedAt;applyCloudState(data.state||{});setSyncStatus("已更新","synced");showToast("已收到另一设备更新")}
+  }catch(e){}
+}
+function startPolling(){if(pollTimer)return;pollTimer=setInterval(pollCloud,12000)}
+document.getElementById("syncStatus").addEventListener("click",()=>syncFromCloud(true));
+document.getElementById("syncSubmit").addEventListener("click",setupOrLogin);
+document.getElementById("syncLater").addEventListener("click",closeSyncModal);
+document.getElementById("syncPinInput").addEventListener("keydown",e=>{if(e.key==="Enter")setupOrLogin()});
+window.addEventListener("online",()=>{if(localDirty&&cloudEnabled)pushCloudState();else syncFromCloud(false)});
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)pollCloud()});
+setTimeout(()=>syncFromCloud(true),500);
+
 let toastTimer;function showToast(text){const t=document.getElementById("toast");t.textContent=text;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),1400)}
 if("serviceWorker" in navigator&&location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
 </script>
