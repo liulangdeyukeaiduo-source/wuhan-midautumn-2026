@@ -47,19 +47,31 @@ async function verifyPin(db, request) {
   return { ok: true };
 }
 
+function cleanItem(item) {
+  return {
+    id: String(item?.id || "").slice(0, 80),
+    title: String(item?.title || "").slice(0, 120),
+    detail: String(item?.detail || "").slice(0, 300),
+    deadline: String(item?.deadline || "").slice(0, 80)
+  };
+}
+
 function cleanState(input) {
   const state = input && typeof input === "object" ? input : {};
   const routeState = state.routeState && typeof state.routeState === "object" ? state.routeState : {};
   const prep = state.prepState && typeof state.prepState === "object" ? state.prepState : {};
   const done = prep.done && typeof prep.done === "object" ? prep.done : {};
-  const custom = Array.isArray(prep.custom) ? prep.custom.slice(0, 100).map(item => ({
-    id: String(item?.id || "").slice(0, 80),
-    title: String(item?.title || "").slice(0, 120),
-    detail: String(item?.detail || "").slice(0, 300),
-    deadline: String(item?.deadline || "").slice(0, 80),
-    fixed: false
-  })).filter(item => item.id && item.title) : [];
-  return { routeState, prepState: { done, custom } };
+
+  const prepState = { done };
+  if (Array.isArray(prep.items)) {
+    prepState.items = prep.items.slice(0, 120).map(cleanItem).filter(item => item.id && item.title);
+  } else {
+    prepState.custom = Array.isArray(prep.custom)
+      ? prep.custom.slice(0, 100).map(cleanItem).filter(item => item.id && item.title)
+      : [];
+  }
+
+  return { routeState, prepState };
 }
 
 export async function onRequest(context) {
@@ -92,7 +104,7 @@ export async function onRequest(context) {
 
   if (method === "GET") {
     const row = await getRow(env.DB, "trip_state");
-    const state = row ? JSON.parse(row.value) : { routeState: {}, prepState: { done: {}, custom: [] } };
+    const state = row ? JSON.parse(row.value) : { routeState: {}, prepState: { done: {}, items: [] } };
     return reply({ ok: true, state, updatedAt: row?.updated_at || "" });
   }
 
