@@ -1,4 +1,4 @@
-const CACHE = "wuhan-midautumn-2026-v4";
+const CACHE = "wuhan-midautumn-2026-v5";
 const CORE = ["./", "./index.html", "./manifest.webmanifest"];
 
 self.addEventListener("install", event => {
