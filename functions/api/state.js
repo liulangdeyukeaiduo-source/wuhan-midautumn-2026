@@ -80,6 +80,13 @@ export async function onRequest(context) {
 
   await ensureSchema(env.DB);
   const method = request.method.toUpperCase();
+  const url = new URL(request.url);
+
+  // Public metadata only: lets old/new browsers know whether they should show setup or login.
+  if (method === "GET" && url.searchParams.get("probe") === "1") {
+    const auth = await getRow(env.DB, "auth_hash");
+    return reply({ ok: true, configured: true, initialized: !!auth });
+  }
 
   if (method === "POST") {
     let body = {};
