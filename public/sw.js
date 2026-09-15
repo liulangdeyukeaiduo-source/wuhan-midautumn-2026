@@ -1,5 +1,13 @@
-const CACHE = "wuhan-midautumn-2026-v6";
-const CORE = ["./", "./index.html", "./manifest.webmanifest", "./prep-v6.js", "./icons/apple-touch-icon.png"];
+const CACHE = "wuhan-midautumn-2026-v8";
+const CORE = [
+  "./",
+  "./index.html",
+  "./manifest.webmanifest",
+  "./prep-v6.js",
+  "./sync-v8.js",
+  "./responsive-v8.css",
+  "./icons/apple-touch-icon.png"
+];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)));
@@ -7,7 +15,11 @@ self.addEventListener("install", event => {
 });
 
 self.addEventListener("activate", event => {
-  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))));
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
+    )
+  );
   self.clients.claim();
 });
 
@@ -17,19 +29,17 @@ self.addEventListener("fetch", event => {
   if (url.origin !== self.location.origin) return;
   if (url.pathname.startsWith("/api/")) return;
 
-  if (event.request.mode === "navigate") {
-    event.respondWith(fetch(event.request).then(resp => {
-      if (resp && resp.ok) caches.open(CACHE).then(cache => cache.put("./index.html", resp.clone()));
+  // Network-first prevents previously opened Safari tabs from staying on stale UI/sync code.
+  event.respondWith(
+    fetch(event.request).then(resp => {
+      if (resp && resp.ok) {
+        const copy = resp.clone();
+        caches.open(CACHE).then(cache => cache.put(event.request, copy));
+      }
       return resp;
-    }).catch(() => caches.match("./index.html")));
-    return;
-  }
-
-  event.respondWith(caches.match(event.request).then(cached => {
-    const network = fetch(event.request).then(resp => {
-      if (resp && resp.ok) caches.open(CACHE).then(cache => cache.put(event.request, resp.clone()));
-      return resp;
-    }).catch(() => cached);
-    return cached || network;
-  }));
+    }).catch(async () => {
+      return (await caches.match(event.request)) ||
+             (event.request.mode === "navigate" ? await caches.match("./index.html") : Response.error());
+    })
+  );
 });
