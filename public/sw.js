@@ -1,4 +1,4 @@
-const CACHE = "wuhan-midautumn-2026-v1";
+const CACHE = "wuhan-midautumn-2026-v2";
 const CORE = ["./", "./index.html", "./manifest.webmanifest"];
 
 self.addEventListener("install", event => {
@@ -18,15 +18,24 @@ self.addEventListener("fetch", event => {
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
 
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
+        .then(resp => {
+          if (resp && resp.ok) caches.open(CACHE).then(cache => cache.put("./index.html", resp.clone()));
+          return resp;
+        })
+        .catch(() => caches.match("./index.html"))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(cached => {
       const network = fetch(event.request).then(resp => {
-        if (resp && resp.ok) {
-          const copy = resp.clone();
-          caches.open(CACHE).then(cache => cache.put(event.request, copy));
-        }
+        if (resp && resp.ok) caches.open(CACHE).then(cache => cache.put(event.request, resp.clone()));
         return resp;
-      }).catch(() => cached || caches.match("./index.html"));
+      }).catch(() => cached);
       return cached || network;
     })
   );
