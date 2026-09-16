@@ -14,9 +14,8 @@ export async function onRequest(context) {
   const url = new URL(context.request.url);
   const response = await context.next();
 
-  // Prevent Safari / old service workers from pinning stale sync/UI assets.
   const freshAssets = new Set([
-    "/sync-v9.js",
+    "/sync-v10.js",
     "/prep-v6.js",
     "/responsive-v8.css",
     "/manifest.webmanifest",
@@ -41,7 +40,7 @@ export async function onRequest(context) {
     })
     .on("body", {
       element(element) {
-        element.append('<script src="/prep-v6.js?v=6"></script><script src="/sync-v9.js?v=9"></script>', { html: true });
+        element.append('<script src="/prep-v6.js?v=6"></script><script src="/sync-v10.js?v=10"></script>', { html: true });
       }
     })
     .transform(response);
