@@ -1,12 +1,34 @@
+function noStore(response) {
+  const headers = new Headers(response.headers);
+  headers.set("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0");
+  headers.set("Pragma", "no-cache");
+  headers.set("Expires", "0");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers
+  });
+}
+
 export async function onRequest(context) {
   const url = new URL(context.request.url);
   const response = await context.next();
+
+  // Prevent Safari / old service workers from pinning stale sync/UI assets.
+  const freshAssets = new Set([
+    "/sync-v9.js",
+    "/prep-v6.js",
+    "/responsive-v8.css",
+    "/manifest.webmanifest",
+    "/sw.js"
+  ]);
+  if (freshAssets.has(url.pathname)) return noStore(response);
 
   if (url.pathname !== "/" && url.pathname !== "/index.html") return response;
   const type = response.headers.get("content-type") || "";
   if (!type.includes("text/html")) return response;
 
-  return new HTMLRewriter()
+  const transformed = new HTMLRewriter()
     .on('meta[name="viewport"]', {
       element(element) {
         element.setAttribute("content", "width=device-width, initial-scale=1, viewport-fit=cover");
@@ -19,8 +41,10 @@ export async function onRequest(context) {
     })
     .on("body", {
       element(element) {
-        element.append('<script src="/prep-v6.js?v=6"></script><script src="/sync-v8.js?v=8"></script>', { html: true });
+        element.append('<script src="/prep-v6.js?v=6"></script><script src="/sync-v9.js?v=9"></script>', { html: true });
       }
     })
     .transform(response);
+
+  return noStore(transformed);
 }
